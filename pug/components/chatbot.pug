@@ -1,0 +1,3 @@
+.chatbot-component
+	type-writer(@update-choices="addChoices" @section-complete="choiceComplete" ":model"="getCurrentContext")
+	user-choices(":model"="getCurrentActions" @user-action="updateContext")

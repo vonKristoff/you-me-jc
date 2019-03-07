@@ -32,7 +32,7 @@ export default {
         }),
         Commonjs({ include: 'node_modules/**' }),
         replace({ exclude: 'node_modules/**', ENV: JSON.stringify(process.env.NODE_ENV || 'development') }),        
-        (process.env.NODE_ENV === 'production' && uglify()
+        (process.env.NODE_ENV === 'production' && uglify())
     ],
     output: { format, name, file, sourcemap }
 }

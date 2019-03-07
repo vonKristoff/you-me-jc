@@ -4,8 +4,29 @@
   100%
     box-shadow 0 0 10px 20px rgba(50,169,44, 0)
 
-.switch-enter-active, .switch-leave-active
-  transition all .3s ease
-.switch-enter, .switch-leave-to
+.chat-move 
+  transition all .3s
+.chat-enter-active, .chat-leave-active
+  transition all .3s
+.chat-enter, .chat-leave-to
   transform translateX(100%)
+  opacity 0
+  
+.choices-enter-active
+  transition all .3s
+.choices-leave-active
+ 	transition all .1s
+.choices-enter
+  transform translateY(100%)
+  opacity 0
+.choices-leave-to
+ 	transform scale(0%)
+  opacity 0
+.choices-move 
+  transition all .3s
+  
+.feature-enter-active, .feature-leave-active
+  transition all .3s
+.feature-enter, .feature-leave-to
+  transform scale(2)
   opacity 0

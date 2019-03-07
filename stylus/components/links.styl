@@ -1,0 +1,29 @@
+.links-component
+	position absolute
+	bottom 2em
+	left 0
+	display flex
+	flex-wrap wrap
+	padding 0 20vw
+	width 100%
+	justify-content center
+	+mobile()
+		padding 0 2em
+		top 2em
+		bottom auto
+	.link-item
+		transition all .3s
+		border-radius 1em
+		font-size .5em
+		padding .5em 2em
+		background _blue
+		color white
+		margin .25em
+		border .125em solid transparent
+		a, a:visited
+			color white
+		&:hover
+			border .125em solid _blue
+			background white
+			a
+				color _blue

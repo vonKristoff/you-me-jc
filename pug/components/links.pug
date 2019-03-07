@@ -1,0 +1,5 @@
+.links-component
+	.link-item(v-for="item in collection") 
+		a(":href"="item.url" target="blank") 
+			span.label {{ item.label }}
+			//- span.meta {{ item.tag }}

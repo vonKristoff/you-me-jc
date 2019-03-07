@@ -1,0 +1,13 @@
+.type-writer-component
+	.typer-fields
+		.fields-body
+			transition-group(name="chat" mode="out-in")
+				p(v-for="talk, index in paragraphs" ":key"="talk.stamp") {{ talk.text }}
+		.fields-feet(":class"="isTyping")
+			.typing
+				.ball
+				.ball
+				.ball
+			.output
+				p {{ typed }}
+	

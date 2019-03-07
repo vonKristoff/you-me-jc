@@ -1,1 +1,6 @@
 #root
+	chatbot(@trigger-feature="handleFeature")
+	transition(name="feature" mode="out-in")
+		component(":is"="feature")
+	.icon-preload
+		.icon(v-for="icon in preloader") {{ icon }}
