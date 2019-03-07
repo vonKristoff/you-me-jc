@@ -12157,7 +12157,7 @@
 			timeout: { duration: 0, next: "" }
 		},{
 			id: "LINKS",
-			content: [true, "Here you could checkout..", ("" + (randomFrom(['my online CV','my Github', ("A Museum Made Digital " + (Icon['cool']))]))), "just click on any blue tag.."],
+			content: [true, "Here you could checkout..", ("" + (randomFrom(['and follow me on Twitter','my online CV','my Github', ("A Museum Made Digital " + (Icon['cool']))]))), "just click on any blue tag.."],
 			actions: ['connect','skills', '?'],
 			triggers: ['links'],
 			timeout: { duration: 0, next: "" }
@@ -12323,6 +12323,10 @@
 		label: "CV",
 		tag: "personal",
 		url: "http://bite-software.co.uk/cv"
+	},{
+		label: "Twitter",
+		tag: "personal",
+		url: "https://twitter.com/vonkristoff"
 	},{
 		label: "ScanLAB Projects",
 		tag: "portfolio",

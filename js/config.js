@@ -8,6 +8,10 @@ export const linksCollection = [{
 	tag: "personal",
 	url: "http://bite-software.co.uk/cv"
 },{
+	label: "Twitter",
+	tag: "personal",
+	url: "https://twitter.com/vonkristoff"
+},{
 	label: "ScanLAB Projects",
 	tag: "portfolio",
 	url: "https://scanlabprojects.co.uk"
