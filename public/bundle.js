@@ -12129,7 +12129,7 @@
 			timeout: { duration: 3000, next: "OPTIONS" }
 		},{
 			id: "OPTIONS",		
-			content: [((Icon['robot']) + " tbh, I will anyway.."), true, "'hello world'", "At least we're always left with the facts.."],
+			content: [((Icon['robot']) + " tbh, I will anyway.."), true, "'hello world'", "At least we're always left with just the facts.."],
 			actions: ['connect','skills','links','?'],
 			triggers: ['clear'],
 			timeout: { duration: 0, next: "" }
