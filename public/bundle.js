@@ -11925,7 +11925,7 @@
 
 	var template = "<div class=\"type-writer-component\"><div class=\"typer-fields\"><div class=\"fields-body\"><transition-group name=\"chat\" mode=\"out-in\"><p v-for=\"talk, index in paragraphs\" :key=\"talk.stamp\">{{ talk.text }}</p></transition-group></div><div class=\"fields-feet\" :class=\"isTyping\"><div class=\"typing\"><div class=\"ball\"></div><div class=\"ball\"></div><div class=\"ball\"></div></div><div class=\"output\"><p>{{ typed }}</p></div></div></div></div>";
 
-	var RANGE = 50; // speed
+	var RANGE = 40; // speed
 	var typer = {
 		current: [],
 		complete: null,
@@ -11937,7 +11937,8 @@
 			start: 0,
 			now: 0,
 			last: 0,
-			next: 300
+			next: 300,
+			total: 0
 		},
 		update: function update() {
 			var this$1 = this;
@@ -11945,7 +11946,6 @@
 			this.state.now += Date.now() - this.state.last;
 			this.state.count = Math.floor((this.state.now - this.state.start));
 			this.state.last = this.state.now;
-			
 			if(this.current.length != this.store.length) { this.type(this.canType()); }
 			else { this.stop(); }
 
@@ -11963,9 +11963,10 @@
 		type: function type(condition) {
 			if(condition) {
 				this.current = this.store.slice(0, this.state.index);
-				this.state.start = Date.now();			
-				this.state.next = Math.random()*RANGE;
+				this.state.start = Date.now();
+				this.state.next = Math.random() * RANGE;
 				this.state.index++;
+				// this.state.total = this.state.total < MAX ? this.state.total + this.state.next : this.state.total
 			}
 		},
 		start: function start(input, complete) {
@@ -12003,6 +12004,7 @@
 			this.state.last = 0;
 			this.state.next = 250;
 			this.state.start = 0;
+			this.state.total = 0;
 		}
 	};
 
