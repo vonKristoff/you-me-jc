@@ -12189,7 +12189,7 @@
 			timeout: { duration: 0, next: "" }
 		},{
 			id: "SOUTH",		
-			content: [true, 'You find yourself looking up at the brightly coloured fournier.' ],
+			content: [true, 'You find yourself looking up at the brightly coloured foliage.' ],
 			actions: ['north', 'east', 'explore', 'west'],
 			triggers: [],
 			timeout: { duration: 0, next: "" }
