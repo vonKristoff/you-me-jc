@@ -12123,13 +12123,13 @@
 	var graph = {
 		chatbot: [{
 			id: "ROOT",		
-			content: [((Icon['hi']) + " Hi there..! I'm JC " + (Icon['me'])), ("A [" + (randomFrom(jobTitles)) + " Developer]"), true, ("Do you want to talk? " + (Icon['sweat'])), ((Icon['robot']) + " tbh, I will anyway..")],
+			content: [((Icon['hi']) + " Hi there..! I'm JC " + (Icon['me'])), ("A [" + (randomFrom(jobTitles)) + " Developer]"), true, ("Do you want to talk? " + (Icon['sweat']))],
 			actions: ["contact", "?", "A_2"],
 			triggers: [],
 			timeout: { duration: 3000, next: "OPTIONS" }
 		},{
 			id: "OPTIONS",		
-			content: [true, "'hello world'", "At least there's always the facts.."],
+			content: [((Icon['robot']) + " tbh, I will anyway.."), true, "'hello world'", "At least we're always left with the facts.."],
 			actions: ['connect','skills','links','?'],
 			triggers: ['clear'],
 			timeout: { duration: 0, next: "" }
