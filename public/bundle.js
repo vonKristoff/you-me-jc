@@ -12074,7 +12074,7 @@
 		}
 	};
 
-	var template$1 = "<div class=\"user-choices-component\"><transition-group class=\"layout--flex\" name=\"choices\" tag=\"div\" mode=\"in-out\"><div class=\"ui is-choice\" v-for=\"action, index in model\" :key=\"action.label\" @click=\"handle(action.target)\"> <span>{{ action.label }}</span></div></transition-group></div>";
+	var template$1 = "<div class=\"user-choices-component\"><transition-group class=\"layout--flex\" name=\"choices\" tag=\"div\" mode=\"out-in\"><div class=\"ui is-choice\" v-for=\"action, index in model\" :key=\"action.label\" @click=\"handle(action.target)\"> <span>{{ action.label }}</span></div></transition-group></div>";
 
 	var classes$1 = {
 

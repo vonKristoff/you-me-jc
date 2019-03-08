@@ -1,4 +1,4 @@
 .user-choices-component
-	transition-group(name="choices" tag="div" class="layout--flex" mode="in-out")
+	transition-group(name="choices" tag="div" class="layout--flex" mode="out-in")
 		.ui.is-choice(v-for="action, index in model" ":key"="action.label" @click="handle(action.target)") 
 			span {{ action.label }}
