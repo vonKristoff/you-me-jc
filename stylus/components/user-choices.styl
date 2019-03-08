@@ -7,13 +7,17 @@
 		justify-content space-between
 		.is-choice
 			display flex
+			justify-content center
 			align-items center
-			color white
-			background-color black
+			// color white
+			// background-color black
+			border .125em solid black
 			border-radius 1em
-			padding .25em 1em
+			padding 0 1.25em
 			height min-content
-			max-height 1.5em
+			min-height 2em
 			overflow hidden
 			&:hover
-				padding .25em 1.5em
+				padding 0 1.75em
+			+mobile()
+				padding 0em 1.25em

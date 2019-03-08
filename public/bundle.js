@@ -11925,7 +11925,8 @@
 
 	var template = "<div class=\"type-writer-component\"><div class=\"typer-fields\"><div class=\"fields-body\"><transition-group name=\"chat\" mode=\"out-in\"><p v-for=\"talk, index in paragraphs\" :key=\"talk.stamp\">{{ talk.text }}</p></transition-group></div><div class=\"fields-feet\" :class=\"isTyping\"><div class=\"typing\"><div class=\"ball\"></div><div class=\"ball\"></div><div class=\"ball\"></div></div><div class=\"output\"><p>{{ typed }}</p></div></div></div></div>";
 
-	var RANGE = 40; // speed
+	var RANGE = 100; // speed
+	var MAX = 1000; // timeout
 	var typer = {
 		current: [],
 		complete: null,
@@ -11946,13 +11947,14 @@
 			this.state.now += Date.now() - this.state.last;
 			this.state.count = Math.floor((this.state.now - this.state.start));
 			this.state.last = this.state.now;
+			
 			if(this.current.length != this.store.length) { this.type(this.canType()); }
 			else { this.stop(); }
 
 			if(this.state.running) { requestAnimationFrame(function () { return this$1.update(); }); }
 		},
 		canType: function canType() {
-			return this.state.count > this.state.next
+			return this.state.total >= MAX || this.state.count > this.state.next
 		},
 		getCount: function getCount() {		
 			return this.state.count
@@ -11962,11 +11964,13 @@
 		},
 		type: function type(condition) {
 			if(condition) {
+				this.state.total = this.state.total < MAX ? this.state.total + this.state.next : this.state.total;
+				if(this.state.total < MAX) {
+					this.state.start = Date.now();
+					this.state.next = Math.random() * RANGE;
+				}
 				this.current = this.store.slice(0, this.state.index);
-				this.state.start = Date.now();
-				this.state.next = Math.random() * RANGE;
-				this.state.index++;
-				// this.state.total = this.state.total < MAX ? this.state.total + this.state.next : this.state.total
+				this.state.index++;			
 			}
 		},
 		start: function start(input, complete) {
@@ -11974,11 +11978,12 @@
 			if ( input === void 0 ) input = "Some Random String";
 
 			if(typeof input != "boolean") {
+				this.reset();
 				this.store = input.split("");
 				this.state.running = true;
 				this.state.start = Date.now();
 				requestAnimationFrame(function () { return this$1.update(); });
-				this.complete = complete;	
+				this.complete = complete;
 			} else {
 				complete(false);
 			}
@@ -12069,7 +12074,7 @@
 		}
 	};
 
-	var template$1 = "<div class=\"user-choices-component\"><transition-group class=\"layout--flex\" name=\"choices\" tag=\"div\"><div class=\"ui is-choice\" v-for=\"action, index in model\" :key=\"action.label\" @click=\"handle(action.target)\"> <span>{{ action.label }}</span></div></transition-group></div>";
+	var template$1 = "<div class=\"user-choices-component\"><transition-group class=\"layout--flex\" name=\"choices\" tag=\"div\" mode=\"in-out\"><div class=\"ui is-choice\" v-for=\"action, index in model\" :key=\"action.label\" @click=\"handle(action.target)\"> <span>{{ action.label }}</span></div></transition-group></div>";
 
 	var classes$1 = {
 
