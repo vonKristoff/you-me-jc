@@ -2,7 +2,8 @@ import { Icon } from './icons'
 function randomFrom(choices) {
 	return choices[Math.floor(Math.random()*choices.length)]
 }
-const jobTitles = ['Javascript', 'Web', 'Node', 'Fullstack', 'Cloud', 'Frontend', 'React | Vue']
+const jobTitles = ['Javascript', 'Web', 'Node', 'Fullstack', 'Serverless', 'Frontend', 'React | Vue']
+const chitchat = ["HINT: Contact | Skills | Links", "Click on the phone if you want to leave me a message!", "Well it was fun whilst it lasted!", "Hmm, this is where I could insert [RANDOM QUOTE OF THE DAY]"]
 export default {
 	chatbot: [{
 		id: "ROOT",		
@@ -12,7 +13,7 @@ export default {
 		timeout: { duration: 3000, next: "OPTIONS" }
 	},{
 		id: "OPTIONS",		
-		content: [`${Icon['robot']} tbh, I will anyway..`, true, "'hello world'", "At least we're always left with just the facts.."],
+		content: [`${Icon['robot']} tbh, I will anyway..`, true, "'hello world'", `${randomFrom(chitchat)}`],
 		actions: ['connect','skills','links','?'],
 		triggers: ['clear'],
 		timeout: { duration: 0, next: "" }
