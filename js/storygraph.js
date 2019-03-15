@@ -37,7 +37,7 @@ export default {
 		timeout: { duration: 0, next: "" }
 	},{
 		id: "MENU",
-		content: [true, "Turning to page 36...", "You can contact | links | skills"],
+		content: [true, "Turning to page 36...", "You can contact | links | skills", "👇"],
 		actions: ['connect','links','skills'],
 		triggers: [],
 		timeout: { duration: 0, next: "" }
