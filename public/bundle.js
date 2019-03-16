@@ -12074,20 +12074,27 @@
 		}
 	};
 
-	var template$1 = "<div class=\"user-choices-component\"><transition-group class=\"layout--flex\" name=\"choices\" tag=\"div\" mode=\"out-in\"><div class=\"ui is-choice\" v-for=\"action, index in model\" :key=\"action.label\" @click=\"handle(action.target)\"> <span>{{ action.label }}</span></div></transition-group></div>";
-
-	var classes$1 = {
-
-	};
+	var template$1 = "<div class=\"user-choices-component\" :class=\"hasMounted\"><transition-group class=\"layout--flex\" name=\"choices\" tag=\"div\" mode=\"out-in\"><div class=\"ui is-choice\" v-for=\"action, index in model\" :key=\"action.label\" @click=\"handle(action.target)\"> <span>{{ action.label }}</span></div></transition-group></div>";
 
 	var UserChoices = {
 	    name: "user-choices",
 	    template: template$1,
 	    props: ['model'],
 	    data: function data() {
-	        return {}
+	        return { mounted: false }
 	    },
-	    computed: Object.assign({}, classes$1),
+	    computed: {
+	        hasMounted: function hasMounted() {
+	            return this.mounted ? "has-mounted" : ""
+	        }
+	    },
+	    mounted: function mounted() {
+	        var this$1 = this;
+
+	        setTimeout(function () {
+	            this$1.mounted = true;    
+	        }, 0);
+	    },
 	    methods: {
 	    	handle: function handle(target) {
 	    		this.$emit('user-action', target);
@@ -12097,7 +12104,7 @@
 
 	var template$2 = "<div class=\"chatbot-component\"><type-writer @update-choices=\"addChoices\" @section-complete=\"choiceComplete\" :model=\"getCurrentContext\"></type-writer><user-choices :model=\"getCurrentActions\" @user-action=\"updateContext\"></user-choices></div>";
 
-	var classes$2 = {
+	var classes$1 = {
 
 	};
 
@@ -12276,7 +12283,7 @@
 	        	context: "ROOT"
 	        }
 	    },
-	    computed: Object.assign({}, classes$2,
+	    computed: Object.assign({}, classes$1,
 	        {getCurrentContext: function getCurrentContext() {
 	        	var this$1 = this;
 
@@ -12318,7 +12325,7 @@
 
 	var template$3 = "<div class=\"skills-component\"><div class=\"skill\" v-for=\"item in collection\">{{ item }}</div></div>";
 
-	var classes$3 = {
+	var classes$2 = {
 
 	};
 
@@ -12362,12 +12369,12 @@
 	        	collection: skillsCollection
 	        }
 	    },
-	    computed: Object.assign({}, classes$3)
+	    computed: Object.assign({}, classes$2)
 	};
 
 	var template$4 = "<div class=\"links-component\"><div class=\"link-item\" v-for=\"item in collection\"> <a :href=\"item.url\" target=\"blank\"> <span class=\"label\">{{ item.label }}</span></a></div></div>";
 
-	var classes$4 = {
+	var classes$3 = {
 
 	};
 
@@ -12380,7 +12387,7 @@
 	        	collection: linksCollection
 	        }
 	    },
-	    computed: Object.assign({}, classes$4)
+	    computed: Object.assign({}, classes$3)
 	};
 
 	var FeaturesLookup = {

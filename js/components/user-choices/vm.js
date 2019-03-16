@@ -5,10 +5,17 @@ export default {
     template,
     props: ['model'],
     data() {
-        return {}
+        return { mounted: false }
     },
     computed: {
-        ...classes
+        hasMounted() {
+            return this.mounted ? "has-mounted" : ""
+        }
+    },
+    mounted() {
+        setTimeout(() => {
+            this.mounted = true    
+        }, 0)
     },
     methods: {
     	handle(target) {
